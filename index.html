@@ -78,7 +78,24 @@ button:hover{
 .wrong{
     color:red;
     font-weight:bold;
+    
 }
+.answer-box{
+margin-top:10px;
+animation:fadeIn .3s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+    
 
 .score{
     text-align:center;
@@ -346,11 +363,53 @@ let selected=document.querySelector(
 `input[name="q${index}"]:checked`
 );
 
-let userAns=selected?selected.value:"Not Answered";
+let userAns=selected ? selected.value : "Not Answered";
+
+const options=document.querySelectorAll(
+`input[name="q${index}"]`
+);
+
+options.forEach(option=>{
+
+const label=option.parentElement;
+
+if(option.value===q.answer){
+label.style.background="#d4edda";
+label.style.border="2px solid green";
+}
+
+if(option.checked && option.value!==q.answer){
+label.style.background="#f8d7da";
+label.style.border="2px solid red";
+}
+
+option.disabled=true;
+});
+
+const card=document.querySelectorAll(".card")[index];
+
+const answerBox=document.createElement("div");
+
+answerBox.innerHTML=`
+
+<div style="
+margin-top:12px;
+padding:10px;
+background:#f8f9fa;
+border-left:5px solid green;
+border-radius:8px;
+font-weight:bold;">
+✔ Correct Answer: ${q.answer}
+</div>
+`;
+
+card.appendChild(answerBox);
 
 if(userAns===q.answer){
 score++;
+
 review+=`
+
 <p class="correct">
 ✅ Q${index+1}: Correct
 </p>`;
@@ -368,6 +427,7 @@ review+=`
 document.getElementById("result").style.display="block";
 
 document.getElementById("result").innerHTML=`
+
 <div class="card">
 <div class="score">
 🎀 Your Score: ${score}/${questions.length}
@@ -383,6 +443,7 @@ top:document.body.scrollHeight,
 behavior:'smooth'
 });
 }
+
 </script>
 
 </body>
