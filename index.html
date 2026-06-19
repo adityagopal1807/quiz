@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎀 Pookie Placement Quiz 🎀</title>
+
+<style>
+body{
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg,#ffd6e8,#ffeaf4,#e6d6ff);
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#ff4d88;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.question{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.option{
+    display:block;
+    margin:8px 0;
+    padding:10px;
+    border-radius:10px;
+    background:#fff0f6;
+    cursor:pointer;
+}
+
+.option:hover{
+    background:#ffd6e8;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:#ff66a3;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff3385;
+}
+
+#result{
+    margin-top:20px;
+    display:none;
+}
+
+.correct{
+    color:green;
+    font-weight:bold;
+}
+
+.wrong{
+    color:red;
+    font-weight:bold;
+}
+
+.score{
+    text-align:center;
+    font-size:28px;
+    color:#ff4d88;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎀 Pookie Placement Quiz 🎀</h1>
+
+<form id="quizForm"></form>
+
+<button onclick="submitQuiz()">✨ Submit Quiz ✨</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+const questions = [
+
+{
+q:"What data structure is commonly used to solve Longest Subarray Sum K in O(N)?",
+options:["Stack","Queue","HashMap","Heap"],
+answer:"HashMap"
+},
+{
+q:"If prefixSum = 20 and k = 15, what value should be searched in HashMap?",
+options:["20","15","5","35"],
+answer:"5"
+},
+{
+q:"For arr = [10,5,2,7,1,9], k = 15. Longest subarray length is:",
+options:["2","3","4","5"],
+answer:"4"
+},
+
+{
+q:"Which data structure combination gives O(1) get and put in LRU Cache?",
+options:[
+"Array + Queue",
+"HashMap + Doubly Linked List",
+"Heap + Stack",
+"BST + Queue"
+],
+answer:"HashMap + Doubly Linked List"
+},
+{
+q:"What does LRU stand for?",
+options:[
+"Last Removed Unit",
+"Least Recently Used",
+"Least Removed User",
+"Last Recent Utility"
+],
+answer:"Least Recently Used"
+},
+{
+q:"Capacity=2 → put(1,1), put(2,2), get(1), put(3,3). Which key is removed?",
+options:["1","2","3","None"],
+answer:"2"
+},
+
+{
+q:"Which data structure is most commonly used in Top K Frequent Elements?",
+options:["Queue","Heap","Stack","Trie"],
+answer:"Heap"
+},
+{
+q:"Frequency counting is typically done using:",
+options:["HashMap","LinkedList","BST","ArrayList"],
+answer:"HashMap"
+},
+{
+q:"nums=[1,1,1,2,2,3], k=2. Output?",
+options:["[1,3]","[2,3]","[1,2]","[2,1,3]"],
+answer:"[1,2]"
+},
+
+{
+q:"What should be done before merging intervals?",
+options:[
+"Reverse array",
+"Sort by start time",
+"Use heap",
+"Use queue"
+],
+answer:"Sort by start time"
+},
+{
+q:"Time complexity of optimal Merge Intervals solution?",
+options:["O(N²)","O(N log N)","O(log N)","O(N³)"],
+answer:"O(N log N)"
+},
+{
+q:"[[1,4],[2,5],[7,9]] Output?",
+options:[
+"[[1,4],[2,5],[7,9]]",
+"[[1,5],[7,9]]",
+"[[1,9]]",
+"[[2,5],[7,9]]"
+],
+answer:"[[1,5],[7,9]]"
+},
+
+{
+q:"Which data structure gives O(N) Sliding Window Maximum solution?",
+options:["Stack","Queue","Deque","Heap"],
+answer:"Deque"
+},
+{
+q:"Why remove indices outside the window?",
+options:[
+"Save memory",
+"Maintain correctness",
+"Faster sorting",
+"Avoid overflow"
+],
+answer:"Maintain correctness"
+},
+{
+q:"nums=[1,3,-1,-3,5,3,6,7], k=3. First window maximum?",
+options:["1","3","-1","5"],
+answer:"3"
+},
+
+{
+q:"Optimal Trapping Rain Water solution uses?",
+options:["DFS","BFS","Two Pointers","Binary Search"],
+answer:"Two Pointers"
+},
+{
+q:"Water at index i is:",
+options:[
+"max(left,right)",
+"min(leftMax,rightMax) - height[i]",
+"leftMax + rightMax",
+"height[i] - min(left,right)"
+],
+answer:"min(leftMax,rightMax) - height[i]"
+},
+{
+q:"height=[4,2,0,3,2,5]. Total trapped water?",
+options:["5","7","9","11"],
+answer:"9"
+},
+
+{
+q:"A cache can store only 3 items. Access sequence: A B C A D. Using LRU, which item is removed?",
+options:["A","B","C","D"],
+answer:"B"
+},
+{
+q:"If a frequency map contains {1:5, 2:3, 3:8, 4:2}, Top-2 frequent elements are:",
+options:["1,2","3,1","3,2","1,4"],
+answer:"3,1"
+},
+{
+q:"After sorting intervals [1,3],[2,6],[8,10], how many merged intervals remain?",
+options:["1","2","3","4"],
+answer:"2"
+},
+{
+q:"For Sliding Window Maximum, each element enters and leaves deque at most:",
+options:["0 times","1 time","2 times","N times"],
+answer:"2 times"
+},
+{
+q:"For height=[2,0,2], water trapped is:",
+options:["0","1","2","4"],
+answer:"2"
+},
+
+// Extra Placement Questions
+
+{
+q:"What is the time complexity of HashMap lookup on average?",
+options:["O(N)","O(log N)","O(1)","O(N log N)"],
+answer:"O(1)"
+},
+{
+q:"Which technique is used in Trapping Rain Water optimal solution?",
+options:[
+"Greedy",
+"Dynamic Programming",
+"Two Pointers",
+"Backtracking"
+],
+answer:"Two Pointers"
+},
+{
+q:"Sliding Window Maximum using Heap has complexity:",
+options:[
+"O(N)",
+"O(N log K)",
+"O(K log N)",
+"O(log N)"
+],
+answer:"O(N log K)"
+},
+{
+q:"In Merge Intervals, why sort first?",
+options:[
+"Reduce memory",
+"Detect overlaps efficiently",
+"Use recursion",
+"Prevent duplicates"
+],
+answer:"Detect overlaps efficiently"
+},
+{
+q:"Which problem among these heavily uses Prefix Sum?",
+options:[
+"LRU Cache",
+"Longest Subarray Sum K",
+"Merge Intervals",
+"Sliding Window Maximum"
+],
+answer:"Longest Subarray Sum K"
+}
+
+];
+
+const quizForm=document.getElementById("quizForm");
+
+questions.forEach((item,index)=>{
+
+let html=`
+<div class="card">
+<div class="question">
+Q${index+1}. ${item.q}
+</div>
+`;
+
+item.options.forEach(option=>{
+html+=`
+<label class="option">
+<input type="radio"
+name="q${index}"
+value="${option}">
+ ${option}
+</label>
+`;
+});
+
+html+=`</div>`;
+
+quizForm.innerHTML+=html;
+});
+
+function submitQuiz(){
+
+let score=0;
+let review="";
+
+questions.forEach((q,index)=>{
+
+let selected=document.querySelector(
+`input[name="q${index}"]:checked`
+);
+
+let userAns=selected?selected.value:"Not Answered";
+
+if(userAns===q.answer){
+score++;
+review+=`
+<p class="correct">
+✅ Q${index+1}: Correct
+</p>`;
+}
+else{
+review+=`
+<p class="wrong">
+❌ Q${index+1}: Your Answer: ${userAns}
+<br>
+✔ Correct Answer: ${q.answer}
+</p>`;
+}
+});
+
+document.getElementById("result").style.display="block";
+
+document.getElementById("result").innerHTML=`
+<div class="card">
+<div class="score">
+🎀 Your Score: ${score}/${questions.length}
+</div>
+<hr>
+<h2>Answer Review</h2>
+${review}
+</div>
+`;
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:'smooth'
+});
+}
+</script>
+
+</body>
+</html>
