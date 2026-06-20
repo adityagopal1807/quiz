@@ -312,6 +312,328 @@ q:"[Longest Subarray Sum K] arr=[10,5,2,7,1,9], k=15. Longest length?",
 options:["2","3","4","5"],
 answer:"4"
 }
+{
+q:`[LRU Cache Debug]
+
+if(map.containsKey(key)){
+    map.remove(key);
+}
+map.put(key,value);
+
+What issue exists in LRU Cache implementation?`,
+options:[
+"Recency not updated in DLL",
+"Compilation error",
+"Memory leak",
+"No issue"
+],
+answer:"Recency not updated in DLL"
+},
+
+{
+q:`[Top K Frequent Debug]
+
+PriorityQueue<Integer> pq=
+new PriorityQueue<>();
+
+What type of heap is created?`,
+options:[
+"Max Heap",
+"Min Heap",
+"Deque",
+"Stack"
+],
+answer:"Min Heap"
+},
+
+{
+q:`[Top K Frequent Output]
+
+nums=[1,1,2,2,2,3]
+k=1
+
+Output?`,
+options:[
+"[1]",
+"[2]",
+"[3]",
+"[1,2]"
+],
+answer:"[2]"
+},
+
+{
+q:`[Merge Intervals Debug]
+
+if(intervals[i][0] < end)
+
+is used instead of
+
+if(intervals[i][0] <= end)
+
+What happens for [1,4] [4,5]?`,
+options:[
+"Correct merge",
+"No merge occurs",
+"Compilation Error",
+"Infinite loop"
+],
+answer:"No merge occurs"
+},
+
+{
+q:`[Merge Intervals Output]
+
+[[1,3],[2,6],[8,10]]
+
+How many intervals remain after merge?`,
+options:[
+"1",
+"2",
+"3",
+"4"
+],
+answer:"2"
+},
+
+{
+q:`[Sliding Window Maximum Debug]
+
+while(!dq.isEmpty() &&
+nums[dq.peekLast()] < nums[i]){
+ dq.pollLast();
+}
+
+If '<' becomes '>', deque stores?`,
+options:[
+"Maximums",
+"Minimums",
+"Indices only",
+"Nothing"
+],
+answer:"Minimums"
+},
+
+{
+q:`[Sliding Window Maximum Output]
+
+nums=[7,2,4]
+k=2
+
+Output?`,
+options:[
+"[7,4]",
+"[2,4]",
+"[7,2]",
+"[4]"
+],
+answer:"[7,4]"
+},
+
+{
+q:`[Median Finder Debug]
+
+maxHeap.add(num);
+
+What balancing step is missing?`,
+options:[
+"Move element between heaps",
+"Sort heap",
+"Use HashMap",
+"Reverse heap"
+],
+answer:"Move element between heaps"
+},
+
+{
+q:`[Median Finder Output]
+
+addNum(5)
+addNum(10)
+addNum(15)
+
+Median=?`,
+options:[
+"5",
+"10",
+"15",
+"12.5"
+],
+answer:"10"
+},
+
+{
+q:`[Kth Largest Stream Debug]
+
+if(heap.size()>k){
+    heap.poll();
+}
+
+What does poll() remove?`,
+options:[
+"Largest",
+"Smallest",
+"Middle",
+"Random"
+],
+answer:"Smallest"
+},
+
+{
+q:`[Kth Largest Stream Output]
+
+k=2
+nums=[4,5]
+
+add(10)
+
+Returned value?`,
+options:[
+"4",
+"5",
+"10",
+"2"
+],
+answer:"5"
+},
+
+{
+q:`[Word Ladder Debug]
+
+Queue<String> q=new LinkedList<>();
+
+Which traversal is being used?`,
+options:[
+"DFS",
+"BFS",
+"DP",
+"Greedy"
+],
+answer:"BFS"
+},
+
+{
+q:`[Word Ladder Output]
+
+hit -> hot -> dot -> dog
+
+Length?`,
+options:[
+"2",
+"3",
+"4",
+"5"
+],
+answer:"4"
+},
+
+{
+q:`[Trapping Rain Water Debug]
+
+water += Math.max(leftMax,rightMax)-height[i];
+
+Bug?`,
+options:[
+"Should use min instead of max",
+"No bug",
+"Overflow",
+"Wrong loop"
+],
+answer:"Should use min instead of max"
+},
+
+{
+q:`[Trapping Rain Water Output]
+
+height=[3,0,3]
+
+Water trapped?`,
+options:[
+"0",
+"1",
+"2",
+"3"
+],
+answer:"3"
+},
+
+{
+q:`[Course Schedule Debug]
+
+visited[node]=true;
+
+but recursion stack array is not maintained.
+
+What may happen?`,
+options:[
+"Miss cycle detection",
+"Compilation error",
+"Memory leak",
+"Faster solution"
+],
+answer:"Miss cycle detection"
+},
+
+{
+q:`[Course Schedule Output]
+
+0→1→2→0
+
+Graph contains?`,
+options:[
+"Tree",
+"Cycle",
+"DAG",
+"None"
+],
+answer:"Cycle"
+},
+
+{
+q:`[Longest Subarray Sum K Debug]
+
+if(map.containsKey(prefixSum)==false){
+    map.put(prefixSum,i);
+}
+
+Why only first occurrence stored?`,
+options:[
+"Get longest length",
+"Save memory",
+"Required by HashMap",
+"Sorting"
+],
+answer:"Get longest length"
+},
+
+{
+q:`[Longest Subarray Sum K Output]
+
+arr=[1,2,3]
+k=3
+
+Longest length?`,
+options:[
+"1",
+"2",
+"3",
+"0"
+],
+answer:"2"
+},
+
+{
+q:`[Complexity]
+
+Which problem among these uses BFS?`,
+options:[
+"LRU Cache",
+"Word Ladder",
+"Trapping Rain Water",
+"Merge Intervals"
+],
+answer:"Word Ladder"
+}    
 
 ];
 
