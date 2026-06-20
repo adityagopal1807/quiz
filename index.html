@@ -124,80 +124,49 @@ transform:translateY(0);
 const questions = [
 
 {
-q:"What data structure is commonly used to solve Longest Subarray Sum K in O(N)?",
-options:["Stack","Queue","HashMap","Heap"],
-answer:"HashMap"
-},
-{
-q:"If prefixSum = 20 and k = 15, what value should be searched in HashMap?",
-options:["20","15","5","35"],
-answer:"5"
-},
-{
-q:"For arr = [10,5,2,7,1,9], k = 15. Longest subarray length is:",
-options:["2","3","4","5"],
-answer:"4"
+q:"[LRU Cache] Which data structure combination provides O(1) get() and put()?",
+options:["Array + Queue","HashMap + Doubly Linked List","Heap + Stack","BST + Queue"],
+answer:"HashMap + Doubly Linked List"
 },
 
 {
-q:"Which data structure combination gives O(1) get and put in LRU Cache?",
-options:[
-"Array + Queue",
-"HashMap + Doubly Linked List",
-"Heap + Stack",
-"BST + Queue"
-],
-answer:"HashMap + Doubly Linked List"
-},
-{
-q:"What does LRU stand for?",
-options:[
-"Last Removed Unit",
-"Least Recently Used",
-"Least Removed User",
-"Last Recent Utility"
-],
-answer:"Least Recently Used"
-},
-{
-q:"Capacity=2 → put(1,1), put(2,2), get(1), put(3,3). Which key is removed?",
+q:"[LRU Cache] Capacity=2 → put(1,1), put(2,2), get(1), put(3,3). Which key is evicted?",
 options:["1","2","3","None"],
 answer:"2"
 },
 
 {
-q:"Which data structure is most commonly used in Top K Frequent Elements?",
-options:["Queue","Heap","Stack","Trie"],
+q:"[LRU Cache] Capacity=3, Access sequence: A B C A D. Which item is removed?",
+options:["A","B","C","D"],
+answer:"B"
+},
+
+{
+q:"[Top K Frequent] Which data structure is commonly used to find Top K Frequent Elements efficiently?",
+options:["Stack","Queue","Heap","Trie"],
 answer:"Heap"
 },
+
 {
-q:"Frequency counting is typically done using:",
-options:["HashMap","LinkedList","BST","ArrayList"],
-answer:"HashMap"
-},
-{
-q:"nums=[1,1,1,2,2,3], k=2. Output?",
-options:["[1,3]","[2,3]","[1,2]","[2,1,3]"],
+q:"[Top K Frequent] nums=[1,1,1,2,2,3], k=2. Output?",
+options:["[1,3]","[2,3]","[1,2]","[1]"],
 answer:"[1,2]"
 },
 
 {
-q:"What should be done before merging intervals?",
-options:[
-"Reverse array",
-"Sort by start time",
-"Use heap",
-"Use queue"
-],
+q:"[Top K Frequent] Frequency counting is usually done using?",
+options:["HashMap","LinkedList","BST","ArrayList"],
+answer:"HashMap"
+},
+
+{
+q:"[Merge Intervals] What must be done before merging intervals?",
+options:["Reverse","Sort by start time","Use Queue","Use Heap"],
 answer:"Sort by start time"
 },
+
 {
-q:"Time complexity of optimal Merge Intervals solution?",
-options:["O(N²)","O(N log N)","O(log N)","O(N³)"],
-answer:"O(N log N)"
-},
-{
-q:"[[1,4],[2,5],[7,9]] Output?",
+q:"[Merge Intervals] [[1,4],[2,5],[7,9]] → Output?",
 options:[
 "[[1,4],[2,5],[7,9]]",
 "[[1,5],[7,9]]",
@@ -208,119 +177,140 @@ answer:"[[1,5],[7,9]]"
 },
 
 {
-q:"Which data structure gives O(N) Sliding Window Maximum solution?",
+q:"[Merge Intervals] [[1,4],[4,5]] → Output?",
+options:["[[1,4],[4,5]]","[[1,5]]","[[4,5]]","Error"],
+answer:"[[1,5]]"
+},
+
+{
+q:"[Sliding Window Maximum] Optimal solution uses?",
 options:["Stack","Queue","Deque","Heap"],
 answer:"Deque"
 },
+
 {
-q:"Why remove indices outside the window?",
-options:[
-"Save memory",
-"Maintain correctness",
-"Faster sorting",
-"Avoid overflow"
-],
-answer:"Maintain correctness"
-},
-{
-q:"nums=[1,3,-1,-3,5,3,6,7], k=3. First window maximum?",
+q:"[Sliding Window Maximum] nums=[1,3,-1,-3,5,3,6,7], k=3. First window maximum?",
 options:["1","3","-1","5"],
 answer:"3"
 },
 
 {
-q:"Optimal Trapping Rain Water solution uses?",
+q:"[Sliding Window Maximum] Time complexity using Deque?",
+options:["O(N²)","O(N log N)","O(N)","O(log N)"],
+answer:"O(N)"
+},
+
+{
+q:"[Median Finder] Which data structure is used?",
+options:["Stack + Queue","Two Heaps","Trie","HashMap"],
+answer:"Two Heaps"
+},
+
+{
+q:"[Median Finder] addNum(1), addNum(2), findMedian()?",
+options:["1","1.5","2","0"],
+answer:"1.5"
+},
+
+{
+q:"[Median Finder] addNum(1), addNum(2), addNum(3), findMedian()?",
+options:["1","2","3","2.5"],
+answer:"2"
+},
+
+{
+q:"[Kth Largest Stream] k=3, nums=[4,5,8,2], add(3). Return?",
+options:["3","4","5","8"],
+answer:"4"
+},
+
+{
+q:"[Kth Largest Stream] Which heap is maintained?",
+options:["Max Heap","Min Heap of size k","Stack","Queue"],
+answer:"Min Heap of size k"
+},
+
+{
+q:"[Kth Largest Stream] If heap size exceeds k, what is removed?",
+options:["Largest","Middle","Smallest","Random"],
+answer:"Smallest"
+},
+
+{
+q:"[Word Ladder] Which algorithm is used?",
+options:["DFS","BFS","DP","Greedy"],
+answer:"BFS"
+},
+
+{
+q:"[Word Ladder] begin='hit', end='cog', wordList contains cog. Shortest transformation length?",
+options:["3","4","5","6"],
+answer:"5"
+},
+
+{
+q:"[Word Ladder] Why BFS is preferred?",
+options:[
+"Less memory",
+"Finds shortest path first",
+"Easy coding",
+"Uses recursion"
+],
+answer:"Finds shortest path first"
+},
+
+{
+q:"[Trapping Rain Water] Optimal approach uses?",
 options:["DFS","BFS","Two Pointers","Binary Search"],
 answer:"Two Pointers"
 },
+
 {
-q:"Water at index i is:",
-options:[
-"max(left,right)",
-"min(leftMax,rightMax) - height[i]",
-"leftMax + rightMax",
-"height[i] - min(left,right)"
-],
-answer:"min(leftMax,rightMax) - height[i]"
+q:"[Trapping Rain Water] height=[2,0,2]. Water trapped?",
+options:["0","1","2","4"],
+answer:"2"
 },
+
 {
-q:"height=[4,2,0,3,2,5]. Total trapped water?",
+q:"[Trapping Rain Water] height=[4,2,0,3,2,5]. Water trapped?",
 options:["5","7","9","11"],
 answer:"9"
 },
 
 {
-q:"A cache can store only 3 items. Access sequence: A B C A D. Using LRU, which item is removed?",
-options:["A","B","C","D"],
-answer:"B"
-},
-{
-q:"If a frequency map contains {1:5, 2:3, 3:8, 4:2}, Top-2 frequent elements are:",
-options:["1,2","3,1","3,2","1,4"],
-answer:"3,1"
-},
-{
-q:"After sorting intervals [1,3],[2,6],[8,10], how many merged intervals remain?",
-options:["1","2","3","4"],
-answer:"2"
-},
-{
-q:"For Sliding Window Maximum, each element enters and leaves deque at most:",
-options:["0 times","1 time","2 times","N times"],
-answer:"2 times"
-},
-{
-q:"For height=[2,0,2], water trapped is:",
-options:["0","1","2","4"],
-answer:"2"
+q:"[Course Schedule] Which graph problem is this?",
+options:["MST","Cycle Detection","Shortest Path","Matching"],
+answer:"Cycle Detection"
 },
 
-// Extra Placement Questions
+{
+q:"[Course Schedule] numCourses=2, prerequisites=[[1,0]]. Can finish all courses?",
+options:["True","False","Error","Depends"],
+answer:"True"
+},
 
 {
-q:"What is the time complexity of HashMap lookup on average?",
-options:["O(N)","O(log N)","O(1)","O(N log N)"],
-answer:"O(1)"
+q:"[Course Schedule] numCourses=2, prerequisites=[[1,0],[0,1]]. Output?",
+options:["True","False","1","0"],
+answer:"False"
 },
+
 {
-q:"Which technique is used in Trapping Rain Water optimal solution?",
-options:[
-"Greedy",
-"Dynamic Programming",
-"Two Pointers",
-"Backtracking"
-],
-answer:"Two Pointers"
+q:"[Longest Subarray Sum K] Optimal solution uses?",
+options:["Stack","HashMap + Prefix Sum","Heap","Trie"],
+answer:"HashMap + Prefix Sum"
 },
+
 {
-q:"Sliding Window Maximum using Heap has complexity:",
-options:[
-"O(N)",
-"O(N log K)",
-"O(K log N)",
-"O(log N)"
-],
-answer:"O(N log K)"
+q:"[Longest Subarray Sum K] If prefixSum=20 and k=15, what value is searched?",
+options:["20","15","5","35"],
+answer:"5"
 },
+
 {
-q:"In Merge Intervals, why sort first?",
-options:[
-"Reduce memory",
-"Detect overlaps efficiently",
-"Use recursion",
-"Prevent duplicates"
-],
-answer:"Detect overlaps efficiently"
-},
-{
-q:"Which problem among these heavily uses Prefix Sum?",
-options:[
-"LRU Cache",
-"Longest Subarray Sum K",
-"Merge Intervals",
-"Sliding Window Maximum"
-],
-answer:"Longest Subarray Sum K"
+q:"[Longest Subarray Sum K] arr=[10,5,2,7,1,9], k=15. Longest length?",
+options:["2","3","4","5"],
+answer:"4"
 }
 
 ];
